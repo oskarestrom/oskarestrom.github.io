@@ -3,5 +3,4 @@
 icon: fas fa-info-circle
 order: 4
 ---
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+In February, I finished my PhD at the [Tegenfeldt lab](https://tegen.ftf.lth.se/) at Lund University
