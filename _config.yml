@@ -37,7 +37,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Oskar Strom
+  name: Oskar Ström
   email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
@@ -45,7 +45,7 @@ social:
     - https://oskarestrom.github.io # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+     - https://www.linkedin.com/in/oskar-strom-phd/
 
 google_site_verification: # fill in to your verification string
 
