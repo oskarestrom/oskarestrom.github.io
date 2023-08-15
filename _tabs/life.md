@@ -1,6 +1,6 @@
 ---
 layout: categories
 title: Life
-icon: fas fa-stream
+icon: fa-solid fa-circle-user
 order: 5
 ---
