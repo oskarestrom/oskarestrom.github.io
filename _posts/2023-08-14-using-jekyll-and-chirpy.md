@@ -1,5 +1,5 @@
 ---
-title: Making a website using Chirpy and Jekyll
+title: How to make this homepage
 date: 2023-08-14 11:33:00 +0200
 categories: [Blogging]
 tags: [chirpy, jekyll]     # TAG names should always be lowercase
