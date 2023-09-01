@@ -44,8 +44,9 @@ ax.imshow(img, cmap='gray')
 plt.title('Raw image')
 plt.show()
 ```
+<h1>My First Heading</h1>
 <p>
-<img src="assets/image_optimization/raw_image.png" width="150">
+HTML Test
 </p>
 ```python
 #Histogram
