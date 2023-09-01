@@ -44,7 +44,6 @@ ax.imshow(img, cmap='gray')
 plt.title('Raw image')
 plt.show()
 ```
-![Raw image](/assets/img/image-optimization/raw_img.png)
 <img src="/assets/img/image-optimization/raw_img.png" width="150">
 ```python
 #Histogram
@@ -58,4 +57,102 @@ plt.xlabel('pixel value')
 plt.ylabel('count')  
 plt.show()
 ```
+<img src="/assets/img/image-optimization/raw_histogram.png" width="150">
 
+```python
+#Select the percentile values to use for the limits
+min = 10 #
+max = 99 #99.9
+min_val = np.percentile(img,min) #Returns the 10-th percentile of the array elements.
+max_val = np.percentile(img,max) #Returns the 99-th percentile of the array elements.
+
+#Show limits on the raw image histogram
+fontsize = 15
+fig, ax = plt.subplots(figsize=(5,2))
+I = img.ravel()
+I = I[I != 0] 
+plt.hist(I,bins=256, color='k', range=(0,1.5*2**16))
+plt.title(f'Histogram\nRaw Image', fontsize=fontsize)
+plt.xlabel('pixel value')
+plt.ylabel('count')  
+plt.axvline(min_val, color='r', linestyle='dashed', linewidth=1, label=f'{min}th percentile')
+plt.axvline(max_val, color='b', linestyle='dashed', linewidth=1, label=f'{max}th percentile')
+plt.legend()
+plt.show()
+```
+<img src="/assets/img/image-optimization/raw_histogram_with_lines.png" width="500">
+
+```python
+img_perc = exposure.rescale_intensity(img.copy(), in_range=(min_val, max_val), out_range='uint8')
+
+#Show image
+fig, ax = plt.subplots(figsize=(5,5))
+ax.axis('off')
+ax.imshow(img_perc, cmap='gray') 
+plt.title('Contrast-enhanced image')
+plt.show()
+```
+<img src="/assets/img/image-optimization/2_contrast_image.png" width="150">
+
+```python
+# Histogram
+fontsize = 15
+fig, ax = plt.subplots(figsize=(5,2))
+I = img_perc.ravel()
+I = I[I != 0] 
+plt.hist(I,bins=256, color='k', range=(0,255))
+plt.title(f'Histogram\nContrast-enhanced image', fontsize=fontsize)
+plt.xlabel('pixel value')
+plt.ylabel('count')  
+plt.show()
+```
+
+<img src="/assets/img/image-optimization/2_contrast_histogram.png" width="150">
+
+```python
+#Select the pixel values to use for the limits
+min_val = 20000
+max_val = 30000
+
+#Show limits on the raw image histogram
+fontsize = 15
+fig, ax = plt.subplots(figsize=(5,2))
+I = img.ravel()
+I = I[I != 0] 
+plt.hist(I,bins=256, color='k', range=(0,1.5*2**16))
+plt.title(f'Histogram\nRaw Image', fontsize=fontsize)
+plt.xlabel('pixel value')
+plt.ylabel('count')  
+plt.axvline(min_val, color='r', linestyle='dashed', linewidth=1, label=f'{min_val}, min limit')
+plt.axvline(max_val, color='b', linestyle='dashed', linewidth=1, label=f'{max_val}, max limit')
+plt.legend()
+plt.show()
+```
+<img src="/assets/img/image-optimization/2_contrast_histogram_lines.png" width="500">
+
+```python
+img_lims = exposure.rescale_intensity(img.copy(), in_range=(min_val, max_val), out_range='uint8')
+
+#Show image
+fig, ax = plt.subplots(figsize=(5,5))
+ax.axis('off')
+ax.imshow(img_lims, cmap='gray') 
+plt.title('Contrast-enhanced image 2')
+plt.show()
+```
+
+<img src="/assets/img/image-optimization/3_contrast_image.png" width="150">
+
+```python
+#Histogram
+fontsize = 15
+fig, ax = plt.subplots(figsize=(5,2))
+I = img_lims.ravel()
+I = I[I != 0] 
+plt.hist(I,bins=256, color='k', range=(0,255))
+plt.title(f'Histogram\nContrast-enhanced image 2', fontsize=fontsize)
+plt.xlabel('pixel value')
+plt.ylabel('count')  
+plt.show()
+```
+<img src="/assets/img/image-optimization/3_contrast_histogram.png" width="500">
