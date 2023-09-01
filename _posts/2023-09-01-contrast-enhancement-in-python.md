@@ -4,7 +4,7 @@ date: 2023-09-01 10:00:00 +0200
 categories: [Research]
 tags: [coding, python, image processing]     # TAG names should always be lowercase
 ---
-# Image Quality
+## Image Quality
 How can we, working in Python, improve the visual quality of microscopy images in our scientific papers?
 
 In MATLAB, there are [lots of tools](https://www.mathworks.com/help/images/contrast-adjustment.html) to do this very easily.
@@ -21,7 +21,7 @@ To follow this tutorial in python, you need to install the following packages:
 - pip install scikit-image > 0.19.2, < 1
 - pip install tifffile > 2021.7.2
 ```
-
+Then, we load the image file (in this case a TIFF-file), and display it.
 ```python
 import os
 import numpy as np
@@ -44,7 +44,13 @@ ax.imshow(img, cmap='gray')
 plt.title('Raw image')
 plt.show()
 ```
+
 <img src="/assets/img/image-optimization/raw_img.png" width="150">
+
+The contrast and brightness settings could be improved slightly. To get an overview of the pixel values in the image, see this pixel value histogram:
+
+
+
 ```python
 #Histogram
 fontsize = 15
@@ -57,7 +63,9 @@ plt.xlabel('pixel value')
 plt.ylabel('count')  
 plt.show()
 ```
-<img src="/assets/img/image-optimization/raw_histogram.png" width="150">
+<img src="/assets/img/image-optimization/raw_histogram.png" width="350">
+
+For exposure.rescale_intensity, we need to set the in_range and the out_range. The out_range will be uint-8 (unsigned 8 bit) as we don't need larger images than that. The in_range we specify depending on what contrast we want. In the following example I set the in_range to be between the 10-th and 99-th percentile of array element values. See in the histogram where these percentiles correspond in the image. 
 
 ```python
 #Select the percentile values to use for the limits
@@ -80,7 +88,7 @@ plt.axvline(max_val, color='b', linestyle='dashed', linewidth=1, label=f'{max}th
 plt.legend()
 plt.show()
 ```
-<img src="/assets/img/image-optimization/raw_histogram_with_lines.png" width="500">
+<img src="/assets/img/image-optimization/raw_histogram_with_lines.png" width="350">
 
 ```python
 img_perc = exposure.rescale_intensity(img.copy(), in_range=(min_val, max_val), out_range='uint8')
@@ -92,7 +100,11 @@ ax.imshow(img_perc, cmap='gray')
 plt.title('Contrast-enhanced image')
 plt.show()
 ```
-<img src="/assets/img/image-optimization/2_contrast_image.png" width="150">
+The image now has a slightly improved contrast:
+
+<img src="/assets/img/image-optimization/2_contrast_image.png" width="200">
+
+The histogram of this new image has then values between 0 and 255 as uint-8 images do:
 
 ```python
 # Histogram
@@ -107,7 +119,9 @@ plt.ylabel('count')
 plt.show()
 ```
 
-<img src="/assets/img/image-optimization/2_contrast_histogram.png" width="150">
+<img src="/assets/img/image-optimization/2_contrast_histogram.png" width="350">
+
+Another way to set the limits for exposure.rescale_intensity is to directly set the pixel values without bothering with percentiles. Percentiles are useful for a quick and dirty contrast enhancement. However, if minute differences in the percintiles lead to drastic image changes or the image is uneven in terms of bright and dark pixels, it makes sense to work directly with the pixel values. Below I select the in_range to between 20 000 and 30 000.
 
 ```python
 #Select the pixel values to use for the limits
@@ -128,8 +142,9 @@ plt.axvline(max_val, color='b', linestyle='dashed', linewidth=1, label=f'{max_va
 plt.legend()
 plt.show()
 ```
-<img src="/assets/img/image-optimization/2_contrast_histogram_lines.png" width="500">
+<img src="/assets/img/image-optimization/2_contrast_histogram_lines.png" width="350">
 
+The resulting image has a much higher contrast, although perhaps too high of a contrast.
 ```python
 img_lims = exposure.rescale_intensity(img.copy(), in_range=(min_val, max_val), out_range='uint8')
 
@@ -141,18 +156,4 @@ plt.title('Contrast-enhanced image 2')
 plt.show()
 ```
 
-<img src="/assets/img/image-optimization/3_contrast_image.png" width="150">
-
-```python
-#Histogram
-fontsize = 15
-fig, ax = plt.subplots(figsize=(5,2))
-I = img_lims.ravel()
-I = I[I != 0] 
-plt.hist(I,bins=256, color='k', range=(0,255))
-plt.title(f'Histogram\nContrast-enhanced image 2', fontsize=fontsize)
-plt.xlabel('pixel value')
-plt.ylabel('count')  
-plt.show()
-```
-<img src="/assets/img/image-optimization/3_contrast_histogram.png" width="500">
+<img src="/assets/img/image-optimization/3_contrast_image.png" width="200">
