@@ -44,7 +44,7 @@ ax.imshow(img, cmap='gray')
 plt.title('Raw image')
 plt.show()
 ```
-<img src="assets/image_optimization/raw_image.png" width="150">
+
 
 ```python
 #Histogram
@@ -58,4 +58,4 @@ plt.xlabel('pixel value')
 plt.ylabel('count')  
 plt.show()
 ```
-<img src="assets/image_optimization/raw_histogram.png" width="150">
+
