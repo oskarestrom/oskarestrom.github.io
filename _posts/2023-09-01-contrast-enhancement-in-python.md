@@ -44,7 +44,7 @@ ax.imshow(img, cmap='gray')
 plt.title('Raw image')
 plt.show()
 ```
-![Raw image](/assets/image_optimization/raw_image.png)
+![Raw image](/assets/test.png)
 ```python
 #Histogram
 fontsize = 15
@@ -57,4 +57,4 @@ plt.xlabel('pixel value')
 plt.ylabel('count')  
 plt.show()
 ```
-![Raw image histogram](/assets/image_optimization/raw_histogram.png)
+
