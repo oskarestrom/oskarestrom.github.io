@@ -45,6 +45,7 @@ plt.title('Raw image')
 plt.show()
 ```
 ![Raw image](/assets/test.png)
+<img src="/assets/test.png" width="150">
 ```python
 #Histogram
 fontsize = 15
