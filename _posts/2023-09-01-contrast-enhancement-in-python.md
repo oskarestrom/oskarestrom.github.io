@@ -57,4 +57,4 @@ plt.xlabel('pixel value')
 plt.ylabel('count')  
 plt.show()
 ```
-
+![Raw image histogram](/assets/image_optimization/raw_histogram.png)
