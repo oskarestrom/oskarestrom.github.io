@@ -14,7 +14,7 @@ tags: [coding, python, image processing]     # TAG names should always be lowerc
     - Make sure you understand the different datatypes of numpy arrays (e.g. uint8 and uint16...). Using datatypes with too high bit depth can cost you in processing power.
 - [matplotlib](https://matplotlib.org/) - Master this library as well. 
     - For example, learn how to effectively apply [colormaps](https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html) in matplotlib to enhance your figures.
-    - If you want your plots to look the same without having to add many lines of code every time, you can use ['styles sheets'](https://matplotlib.org/stable/tutorials/introductory/customizing.html) in matplotlib. For example, if I am to publish in PNAS, I just change the style sheet to the PNAS one and all my plots will automatically be updated if I just type ```plt.style.use('PNAS') ```.
+    - If you want your plots to look the same without having to add many lines of code every time, you can use ['styles sheets'](https://matplotlib.org/stable/tutorials/introductory/customizing.html) in matplotlib. For example, if I am to publish in PNAS, I just change the style sheet to the PNAS one and all my plots will automatically be updated if I just type ```plt.style.use('PNAS') ```. It will go faster to publish and look prettier if you can keep the fonts, fontsize, figuresize, ticks and so on constant for all your figures.
 - [seaborn](https://seaborn.pydata.org/) - A library based on matplotlib with which you can generate beautiful plots very easily.
 - [Pillow](https://pillow.readthedocs.io/en/stable/) - Contains many useful functions for image editing.
 - [opencv](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html) - Contains both simple and advanced image processing functions.
@@ -40,11 +40,7 @@ By installing the [GitHub Copilot](https://github.com/features/copilot), the way
 - I so recommend keeping bookmarks in your code editor. For Visual Studio Code I recommend the extension called [Numbered Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.numbered-bookmarks)
 
 ### Share your code
-I highly recommend using Git and GitHub for making your code available to others. Everyone uses it, it is easy to keep track of changes over time and it is easy to try the code yourself.
+I highly recommend using [Git](https://git-scm.com/) and [GitHub](github.com/) for making your code available to others. Everyone uses it, it is easy to keep track of changes over time and it is easy to try the code yourself.
 
 ### Document your code
 Use comments everywhere in your code. It might be obvious for you to understand what the function does, but not for others (or even yourself in a year's time). I also highly recommend making longer guides for using a set of functions if you have time, e.g. in [markdown ".md" files](https://www.markdownguide.org/basic-syntax/).
-
-```python
-python plt.style.use('ppt')
-```
