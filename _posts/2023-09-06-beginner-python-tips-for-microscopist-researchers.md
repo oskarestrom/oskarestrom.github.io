@@ -40,7 +40,7 @@ By installing the [GitHub Copilot](https://github.com/features/copilot), the way
 - I so recommend keeping bookmarks in your code editor. For Visual Studio Code I recommend the extension called [Numbered Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.numbered-bookmarks)
 
 ### Share your code
-I highly recommend using [Git](https://git-scm.com/) and [GitHub](github.com/) for making your code available to others. Everyone uses it, it is easy to keep track of changes over time and it is easy to try the code yourself.
+I highly recommend using [Git](https://git-scm.com/) and [GitHub](https://github.com) for making your code available to others. Everyone uses it, it is easy to keep track of changes over time and it is easy to try the code yourself.
 
 ### Document your code
 Use comments everywhere in your code. It might be obvious for you to understand what the function does, but not for others (or even yourself in a year's time). I also highly recommend making longer guides for using a set of functions if you have time, e.g. in [markdown files (".md")](https://www.markdownguide.org/basic-syntax/).
