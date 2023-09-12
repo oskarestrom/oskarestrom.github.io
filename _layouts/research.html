@@ -1,13 +1,13 @@
 ---
 layout: page
-# The Life page layout
+# The Research page layout
 ---
 {{ content }}
 
 {% include lang.html %}
 
 <div class="post-list"> 
-{% for post in site.posts %} {% if post.categories contains "Life" %}
+{% for post in site.posts %} {% if post.categories contains "Research" %}
 
 <h1>
     <a href="{{ post.url }}">{{ post.title }}</a>

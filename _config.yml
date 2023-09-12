@@ -20,7 +20,7 @@ timezone: CET
 
 title: Oskar Ström # the main title
 
-tagline: A site dedicated to learning # it will display as the sub-title
+tagline: Engineer, PhD, Data Scientist # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Articles about science, movement, books and other things I find interesting.
@@ -38,7 +38,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Oskar Ström
-  email: example@domain.com # change to your email address
+  email: oskarestrom@protonmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     #- https://twitter.com/username # change to your twitter homepage

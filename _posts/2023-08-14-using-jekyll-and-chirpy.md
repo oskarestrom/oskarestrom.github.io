@@ -1,7 +1,7 @@
 ---
 title: How to make this homepage
 date: 2023-08-14 11:33:00 +0200
-categories: [Blogging]
+categories: [Coding]
 tags: [chirpy, jekyll]     # TAG names should always be lowercase
 ---
 
